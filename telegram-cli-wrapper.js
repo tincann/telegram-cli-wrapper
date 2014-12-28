@@ -3,24 +3,28 @@ var childProcess = require('child_process'),
 	ps = require('./port-selector.js'),
 	async = require('async');
 
-var childProcess = null;
+var childInstance = null;
 
 exports.start = function(startCallback){
-	if(childProcess){
+	if(childInstance){
 		throw new Error('Process already started');
 	}
 	//Get unused port
 	ps.getPort(function(port){
-		console.log('starting tgcli on port', port);
+		console.log('starting tgcli on port', port, 'path', config.telegram_cli_path);
 		//Start telegram-cli as child process listening on specified port
-		childProcess = child.spawn(config.telegram_cli_path, ['-k', config.server_publickey_path, '-P', port]);
+		childInstance = childProcess.spawn(config.telegram_cli_path, ['-k', config.server_publickey_path, '-P', port]);
 		startCallback(port);
 	});
 }
 
-export.stop = function(callback){
-	if(childProcess){
-		childProcess.kill('SIGSTOP');
-		childProcess = null;
+exports.stop = function(){
+	if(childInstance){
+		childInstance.kill('SIGSTOP');
+		childInstance = null;
 	}
+}
+
+exports.isRunning = function(){
+	return !!childInstance;
 }

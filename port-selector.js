@@ -1,8 +1,9 @@
+var net = require('net');
 var portrange = 45032
  
 //Gets random unused port
 //https://gist.github.com/mikeal/1840641
-exports.getPort = function(cb) {
+var getPort = function(cb) {
   var port = portrange;
   portrange += 1;
  
@@ -17,3 +18,5 @@ exports.getPort = function(cb) {
     getPort(cb);
   })
 }
+
+exports.getPort = getPort;
