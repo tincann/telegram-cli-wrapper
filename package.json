@@ -1,0 +1,19 @@
+{
+  "name": "telegram-cli-nodejs",
+  "version": "0.0.0",
+  "description": "Nodejs wrapper that communicates with the Telegram API.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "./compile-dependencies.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tincann/telegram-cli-nodejs.git"
+  },
+  "author": "tincann",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/tincann/telegram-cli-nodejs/issues"
+  }
+}

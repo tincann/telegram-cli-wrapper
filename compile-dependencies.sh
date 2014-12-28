@@ -1,0 +1,1 @@
+(cd ./tg && ./configure && make)
