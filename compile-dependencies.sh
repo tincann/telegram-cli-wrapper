@@ -1,1 +1,1 @@
-(cd ./tg && ./configure && make)
+(cd ./tg && ./configure --disable-liblua && make)
