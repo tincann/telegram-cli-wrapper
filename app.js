@@ -1,4 +1,3 @@
-var tgapi = require('./telegram-api.js').create();
+var tgapi = require('./lib/telegram-api.js').create();
 
-
-setTimeout(tgapi.start.bind(tgapi), 5000);
+tgapi.start();
