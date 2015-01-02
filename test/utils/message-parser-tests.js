@@ -1,6 +1,7 @@
 var assert = require('assert'),
     util = require('util'),
-    parse = require('../../lib/utils/message-parser.js');
+    parse = require('../../lib/utils/message-parser.js'),
+    Message = require('../../lib/models/Message.js');
 
 var messageType = {
     '>>>': 'outgoing',
@@ -18,12 +19,8 @@ var messageTypeInv = {
 describe('utils', function(){
     describe('message-parser', function() {
         it('should correctly parse message', function(){
-            var expected = { 
-                time: '19:16',
-                peer: 'Peer Name',
-                type: 'incoming_history',
-                body: 'Body'
-            };
+            var expected = new Message(
+                '19:16', 'Peer', 'incoming_history', 'Body');
 
             var mString = constructMessageString(expected);
             var actual = parse(mString);
@@ -33,12 +30,8 @@ describe('utils', function(){
         });
 
         it('should correctly parse message with space in peer name', function(){
-            var expected = { 
-                time: '19:16',
-                peer: 'Peer Name',
-                type: 'incoming_history',
-                body: 'Body'
-            };
+            var expected = new Message(
+                '19:16', 'Peer Name', 'incoming_history', 'Body');
 
             var mString = constructMessageString(expected);
             var actual = parse(mString);
@@ -49,12 +42,8 @@ describe('utils', function(){
 
         it('should correctly parse message types', function(){
             Object.keys(messageTypeInv).forEach(function(type){
-                var expected = {
-                    time: '00:00', 
-                    peer: 'Peer', 
-                    type: type, 
-                    body: 'Body'
-                };
+                var expected = new Message(
+                    '19:16', 'Peer Name', type, 'Body');
 
                 var mString = constructMessageString(expected);
                 var actual = parse(mString);
