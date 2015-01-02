@@ -8,54 +8,64 @@ var messageType = {
     '«««': 'incoming_history'
 };
 
+
+var messageTypeInv = {
+    'outgoing': '>>>',
+    'incoming': '<<<',
+    'incoming_history': '«««'
+};
+
 describe('utils', function(){
     describe('message-parser', function() {
         it('should correctly parse message', function(){
-            var time = '19:16',
-                peer = 'Peer',
-                type = '«««',
-                body = 'Body';
+            var expected = { 
+                time: '19:16',
+                peer: 'Peer Name',
+                type: 'incoming_history',
+                body: 'Body'
+            };
 
-            var mString = constructMessageString(time, peer, type, body);
-            var message = parse(mString);
+            var mString = constructMessageString(expected);
+            var actual = parse(mString);
 
-            assert(message);
-            assert.equal(message.time, time);
-            assert.equal(message.peer, peer);
-            assert.equal(message.type, messageType[type]);
-            assert.equal(message.body, body);
+            assert(actual);
+            assert.deepEqual(actual, expected);
         });
 
         it('should correctly parse message with space in peer name', function(){
-            var time = '19:16',
-                peer = 'Peer Name',
-                type = '«««',
-                body = 'Body';
+            var expected = { 
+                time: '19:16',
+                peer: 'Peer Name',
+                type: 'incoming_history',
+                body: 'Body'
+            };
 
-            var mString = constructMessageString(time, peer, type, body);
-            var message = parse(mString);
+            var mString = constructMessageString(expected);
+            var actual = parse(mString);
 
-            assert(message);
-            assert.equal(message.time, time);
-            assert.equal(message.peer, peer);
-            assert.equal(message.type, messageType[type]);
-            assert.equal(message.body, body);
+            assert(actual);
+            assert.deepEqual(actual, expected);
         });
 
         it('should correctly parse message types', function(){
-            Object.keys(messageType).forEach(function(type){
-                var mString = constructMessageString('00:00', 'Peer', type, 'Body');
-                var message = parse(mString);
+            Object.keys(messageTypeInv).forEach(function(type){
+                var expected = {
+                    time: '00:00', 
+                    peer: 'Peer', 
+                    type: type, 
+                    body: 'Body'
+                };
 
-                assert(message);
-                assert.equal(message.type, messageType[type]);
+                var mString = constructMessageString(expected);
+                var actual = parse(mString);
+
+                assert(actual);
+                assert.equal(actual.type, type);
             });
         });
     })
 });
 
-function constructMessageString(time, peer, type, body) {
-    return util.format('[%s]  %s %s %s', time, peer, type, body);
+function constructMessageString(m) {
+    return util.format('[%s]  %s %s %s', m.time, m.peer, messageTypeInv[m.type], m.body);
 }
-
-function assertMessage(){}
