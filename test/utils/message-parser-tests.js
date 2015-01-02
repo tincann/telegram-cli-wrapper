@@ -1,14 +1,13 @@
 var assert = require('assert'),
-    util = require('util'),
+    Message = require('../../lib/models/Message.js'),
     parse = require('../../lib/utils/message-parser.js'),
-    Message = require('../../lib/models/Message.js');
+    util = require('util');
 
 var messageType = {
     '>>>': 'outgoing',
     '<<<': 'incoming',
     '«««': 'incoming_history'
 };
-
 
 var messageTypeInv = {
     'outgoing': '>>>',
