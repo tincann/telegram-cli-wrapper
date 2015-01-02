@@ -1,6 +1,6 @@
 var assert = require('assert'),
     util = require('util'),
-    parse = require('../lib/utils/message-parser.js');
+    parse = require('../../lib/utils/message-parser.js');
 
 var messageType = {
     '>>>': 'outgoing',
