@@ -4,7 +4,7 @@
   "description": "Nodejs wrapper that communicates with the Telegram API.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "install": "./compile-dependencies.sh"
   },
   "repository": {
