@@ -1,6 +1,6 @@
 telegram-cli-wrapper
 ===================
-[![Build Status](https://travis-ci.org/tincann/telegram-cli-nodejs.svg)](https://travis-ci.org/tincann/telegram-cli-nodejs)
+[![Build Status](https://travis-ci.org/tincann/telegram-cli-wrapper.svg)](https://travis-ci.org/tincann/telegram-cli-nodejs)
 
 Nodejs wrapper that communicates with the Telegram API.
 
