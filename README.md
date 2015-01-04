@@ -1,4 +1,4 @@
-telegram-cli-nodejs
+telegram-cli-wrapper
 ===================
 [![Build Status](https://travis-ci.org/tincann/telegram-cli-nodejs.svg)](https://travis-ci.org/tincann/telegram-cli-nodejs)
 
