@@ -30,6 +30,18 @@ While in the root of this project, first run the binary in the `tg/bin` director
 
 Then you should set up access to a telegram account by following the steps in the cli. Please refer to the README of the cli (https://github.com/vysheng/tg).
 
+After this is done you can use the TelegramAPI object in the lib directory. Usage example:
+
+```javascript
+var tgapi = require('./lib/telegram-api.js');
+
+tgapi.connect(function(connection){
+    connection.on('message', function(message){
+        console.log('message:', message);
+    });
+});
+```
+
 
 ###Windows
 
