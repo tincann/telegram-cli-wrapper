@@ -15,7 +15,7 @@ TelegramAPI.connect(function(connection){
         console.log('Error from Telegram API:', e);
     });
 
-    connection.on('close', function(){
+    connection.on('disconnect', function(){
         console.log('Disconnected from Telegram API');
     });
 });

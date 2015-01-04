@@ -2,10 +2,14 @@ var assert = require('assert'),
     TelegramAPI = require('../lib/telegram-api.js');
 
 describe('telegram-api', function() {
+
+    afterEach(function(){
+        TelegramAPI.disconnect();
+    });
+
     it('should open new connection', function(done){
         TelegramAPI.connect(function(connection){
             assert(connection);
-            TelegramAPI.disconnect();
             done();
         });
     }); 
@@ -14,21 +18,20 @@ describe('telegram-api', function() {
         TelegramAPI.connect(function(connection){
             var socket = connection.socket;
             connection.on('error', function(){
-                TelegramAPI.disconnect()
+                
                 done();
             });
             socket.emit('error');
         });
     });
 
-    it('should emit close event from underlying socket', function(done){
+    it('should emit disconnect event from underlying socket', function(done){
         TelegramAPI.connect(function(connection){
             var socket = connection.socket;
-            connection.on('close', function(){
-                TelegramAPI.disconnect();
+            connection.on('disconnect', function(){
                 done();
             });
-            socket.emit('close');
+            TelegramAPI.disconnect();
         });
     });
 });
