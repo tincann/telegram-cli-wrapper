@@ -2,7 +2,7 @@
   "name": "telegram-cli-nodejs",
   "version": "0.0.0",
   "description": "Nodejs wrapper that communicates with the Telegram API.",
-  "main": "app.js",
+  "main": "./lib/telegram-api.js",
   "scripts": {
     "test": "mocha",
     "install": "./compile-dependencies.sh"
