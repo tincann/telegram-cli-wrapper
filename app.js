@@ -1,9 +1,21 @@
 //This file is only used for debugging purposes -> Main file is lib/telegram-api.js
 
-var tgapi = require('./lib/telegram-api.js');
+var TelegramAPI = require('./lib/telegram-api.js');
 
-tgapi.connect(function(connection){
+TelegramAPI.connect(function(connection){
     connection.on('message', function(message){
         console.log('message:', message);
+    });
+
+    setInterval(function(){
+        connection.send('Mies', 'hallo ' + new Date);        
+    }, 5000);
+
+    connection.on('error', function(e){
+        console.log('Error from Telegram API:', e);
+    });
+
+    connection.on('close', function(){
+        console.log('Disconnected from Telegram API');
     });
 });

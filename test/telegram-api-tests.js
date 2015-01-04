@@ -3,18 +3,18 @@ var assert = require('assert'),
 
 describe('telegram-api', function() {
     it('should open new connection', function(done){
-        var api = new TelegramAPI; 
-        api.connect(function(connection){
+        TelegramAPI.connect(function(connection){
             assert(connection);
+            TelegramAPI.disconnect();
             done();
         });
     }); 
 
     it('should emit error event from underlying socket', function(done){
-        var api = new TelegramAPI;
-        api.connect(function(connection){
+        TelegramAPI.connect(function(connection){
             var socket = connection.socket;
             connection.on('error', function(){
+                TelegramAPI.disconnect()
                 done();
             });
             socket.emit('error');
@@ -22,10 +22,10 @@ describe('telegram-api', function() {
     });
 
     it('should emit close event from underlying socket', function(done){
-        var api = new TelegramAPI;
-        api.connect(function(connection){
+        TelegramAPI.connect(function(connection){
             var socket = connection.socket;
             connection.on('close', function(){
+                TelegramAPI.disconnect();
                 done();
             });
             socket.emit('close');
