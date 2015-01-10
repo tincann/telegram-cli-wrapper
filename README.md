@@ -26,8 +26,6 @@ Underlyingly makes use of telegram-cli (https://github.com/vysheng/tg).
 
 ##Running it the first time
 
-###Linux
-
 While in the root of this project, first run the binary in the `tg/bin` directory by doing:
 
 `./tg/bin/telegram-cli -k tg/server.pub`
@@ -47,6 +45,6 @@ tgapi.connect(function(connection){
 ```
 
 
-###Windows
+##Windows
 
 Haven't tested this for Windows (yet)
