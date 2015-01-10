@@ -8,13 +8,17 @@ Underlyingly makes use of telegram-cli (https://github.com/vysheng/tg).
 
 ##Installation
 
-To run it locally run the following command:
+1.To run it locally run the following command:
 
 `git clone --recursive git@github.com:tincann/telegram-cli-wrapper.git`
   
 The `--recursive` argument is important, as it will also install the submodules of tg. 
 
-Afterwards install all dependencies by running:
+2. Afterwards install all dependencies by running:
+
+`sudo apt-get install libreadline-dev libconfig-dev libssl-dev libevent-dev make`
+
+3. Then run:
 
 `npm install`
 
