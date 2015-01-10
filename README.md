@@ -22,7 +22,7 @@ Underlyingly makes use of telegram-cli (https://github.com/vysheng/tg).
 
   `npm install`
 
-This will compile the code in the included tg submodule into the `tg/bin` directory.
+ This will compile the code in the included tg submodule into the `tg/bin` directory.
 
 ##Running it the first time
 
