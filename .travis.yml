@@ -5,4 +5,5 @@ node_js:
   - "0.6"
 before_install:
   - git submodule update --init --recursive
+  - sudo apt-get install libreadline-dev libconfig-dev libssl-dev libevent-dev make  
   - npm install mocha -g
