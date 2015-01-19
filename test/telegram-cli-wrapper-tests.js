@@ -1,7 +1,10 @@
 var assert = require('assert'),
     TelegramCliWrapper = require('../lib/telegram-cli-wrapper.js');
 
-describe('telegram-cli-wrapper', function() {    
+describe('telegram-cli-wrapper', function() {
+
+    this.timeout(2000);
+
     it('should not start the cli more than once', function(){
         var cli = new TelegramCliWrapper();
         cli.start(function(socket){
