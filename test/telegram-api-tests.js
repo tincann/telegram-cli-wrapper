@@ -3,7 +3,7 @@ var assert = require('assert'),
 
 describe('telegram-api', function() {
 
-    this.timeout(2000);
+    this.timeout(5000);
     
     afterEach(function(){
         TelegramAPI.disconnect();

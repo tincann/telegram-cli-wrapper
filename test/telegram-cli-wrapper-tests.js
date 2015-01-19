@@ -3,7 +3,7 @@ var assert = require('assert'),
 
 describe('telegram-cli-wrapper', function() {
 
-    this.timeout(2000);
+    this.timeout(5000);
 
     it('should not start the cli more than once', function(){
         var cli = new TelegramCliWrapper();
