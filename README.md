@@ -4,6 +4,8 @@ telegram-cli-wrapper
 
 Nodejs wrapper that communicates with the Telegram API.
 
+**This repository has become obsolete as Telegram has released the bot api https://core.telegram.org/bots/api. This is an easier way to programmatically interact with Telegram.**
+
 Underlyingly makes use of telegram-cli (https://github.com/vysheng/tg).
 
 ##Installation
